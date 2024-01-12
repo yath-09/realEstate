@@ -1,7 +1,12 @@
+//import { uploadOnCloudinary } from "../utils/cloudinary";
+
+
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
+
+
 
 const User=require("../models/User") //  User model
 
@@ -32,7 +37,11 @@ router.post("/register", upload.single("profileImage"), async (req, res) => {
   
       /* path to the uploaded profile photo */
       const profileImagePath = profileImage.path;
-  
+      if(!profileImagePath){
+        console.log("Profile image missing")
+    }
+
+
       /* Check if user exists */
       const existingUser = await User.findOne({ email });
       if (existingUser) {
