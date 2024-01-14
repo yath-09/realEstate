@@ -26,16 +26,16 @@ const LoginPage = () => {
 
       /* Get data after fetching */
       const loggedIn = await response.json()
-      const isLogin=await response.status
-      if (isLogin==200) {
+    
+      if (loggedIn) {
         dispatch (
           setLogin({
             user: loggedIn.user,
             token: loggedIn.token
           })
         )
+
         //navigate to the home
-        
         setPasswordMatch(false)
         navigate("/")
       }
