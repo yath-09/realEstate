@@ -14,7 +14,6 @@ const LoginPage = () => {
   // handle submitng function
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     try {
       const response = await fetch ("http://localhost:3001/auth/login", {
         method: "POST",
