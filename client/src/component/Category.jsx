@@ -14,7 +14,7 @@ const Categories = () => {
       </p>
 
       <div className="categories_list">
-        {categories?.slice(1,7).map((category, index) => (
+        {categories?.slice(1,10).map((category, index) => (
           <Link to={`/properties/category/${category.label}` } key={index}>
             <div className="category" key={index}>
               <img src={category.img} alt={category.label} />

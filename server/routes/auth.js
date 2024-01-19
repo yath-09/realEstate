@@ -77,13 +77,12 @@ router.post("/register", upload.single("profileImage"), async (req, res) => {
   });
 
 
-  router.post("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     try {
-    
       const { email, password } = req.body
-  
       /* Check if user exists */
       const user = await User.findOne({ email });
+      //console.log(user)
       if (!user) {
         return res.status(409).json({ message: "User doesn't exist!" });
       }
@@ -97,7 +96,7 @@ router.post("/register", upload.single("profileImage"), async (req, res) => {
       /* Generate JWT token */
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
       delete user.password
-  
+      //console.log(token);
       res.status(200).json({ token, user })
   
     } catch (err) {
