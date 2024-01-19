@@ -12,14 +12,14 @@ app.use(express.static("public"));
 
 
 const authRoutes=require("./routes/auth.js")
-
+const listingRoutes=require("./routes/listing.js")
 
 
 
 
 /* ROUTES */
 app.use("/auth", authRoutes)
-
+app.use("/properties",listingRoutes)
 
 /* MONGOOSE SETUP */
 const PORT = 3001;
