@@ -60,7 +60,8 @@ import { AiFillCar } from "react-icons/ai";
 export const categories = [
   {
     label: "All",
-    icon: <BiWorld/>
+    icon: <BiWorld/>,
+    description:"All"
   },
   { 
     img: "../src/assets/beach_cat.jpg",

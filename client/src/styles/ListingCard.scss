@@ -5,6 +5,7 @@
   cursor: pointer;
   padding: 10px;
   border-radius: 10px;
+  background-color: rgb(202, 244, 241);
 
   &:hover {
     @include shadow;
