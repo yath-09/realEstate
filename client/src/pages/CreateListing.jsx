@@ -9,6 +9,7 @@ import { BiTrash } from "react-icons/bi"
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import Footer from "../component/Footer"
 
 //import variables from "../styles/variables.scss"
 const CreateListing = () => {
@@ -467,6 +468,7 @@ const CreateListing = () => {
 
 
       </div>
+      <Footer/>
       
 
 

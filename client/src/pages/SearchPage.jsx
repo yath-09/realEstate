@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useParams } from "react-router-dom";
 import "../styles/List.scss"
 import { useSelector,useDispatch  } from "react-redux";
@@ -6,6 +7,7 @@ import { useEffect, useState } from "react";
 import Loader from "../component/Loader"
 import Navbar from "../component/Navbar";
 import ListingCard from "../component/ListingCard";
+import Footer from "../component/Footer";
 
 
 const SearchPage = () => {
@@ -66,6 +68,7 @@ const SearchPage = () => {
           )
         )}
       </div>
+      <Footer/>
       
     </>
   );

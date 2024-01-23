@@ -5,6 +5,7 @@ import ListingCard from "../component/ListingCard";
 import { useEffect, useState } from "react";
 import { setPropertyList } from "../redux/state";
 import Loader from "../component/Loader";
+import Footer from "../component/Footer";
 
 
 const PropertyList = () => {
@@ -66,6 +67,7 @@ const PropertyList = () => {
           )
         )}
       </div>
+      <Footer/>
 
     </>
   );

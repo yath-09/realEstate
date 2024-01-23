@@ -6,6 +6,7 @@ import Navbar from "../component/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { setReservationList } from "../redux/state";
 import ListingCard from "../component/ListingCard";
+import Footer from "../component/Footer";
 
 
 const ReservationList = () => {
@@ -60,7 +61,7 @@ const ReservationList = () => {
           />
         ))}
       </div>
-     
+     <Footer/>
     </>
   );
 };

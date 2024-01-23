@@ -10,6 +10,8 @@ import "../styles/ListingDetails.scss";
 import Navbar from '../component/Navbar';
 import { useSelector } from 'react-redux';
 
+import Footer from '../component/Footer';
+
 const ListingDetails = () => {
 
     const [loading, setLoading] = useState(true);
@@ -180,6 +182,7 @@ const ListingDetails = () => {
                             </div>
                         </div>
                     </div>
+                    <Footer/>
                 </>
             )
 
