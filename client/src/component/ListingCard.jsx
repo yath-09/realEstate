@@ -4,8 +4,12 @@ import "../styles/ListingCard.scss";
 import {
   ArrowForwardIos,
   ArrowBackIosNew,
+  Favorite,
+
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux"
+import { setWishList } from "../redux/state";
 
 const ListingCard = ({
   listingId,
@@ -35,8 +39,30 @@ const ListingCard = ({
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % listingPhotoPaths.length);
   };
-
-  const navigate = useNavigate();
+  
+   const navigate = useNavigate();
+   const dispatch=useDispatch();
+    /* ADD TO WISHLIST */
+    const user = useSelector((state) => state.user);
+    const wishList = user?.wishList || [];
+  
+    const isLiked = wishList?.find((item) => item?._id === listingId);
+  
+    const patchWishList = async () => {
+      if (user?._id !== creator._id) {
+      const response = await fetch(
+        `http://localhost:3001/users/${user?._id}/${listingId}`,
+        {
+          method: "PATCH",
+          header: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      dispatch(setWishList(data.wishList));
+    } else { return }
+    };
 
 
  
@@ -95,6 +121,21 @@ const ListingCard = ({
          <p><span>₹{totalPrice}</span></p>
          </>
       }
+
+      <button
+        className="favorite"
+        onClick={(e) => {
+          e.stopPropagation();
+          patchWishList();
+        }}
+        disabled={!user}
+      >
+        {isLiked ? (
+          <Favorite sx={{ color: "red" }} />
+        ) : (
+          <Favorite sx={{ color: "white" }} />
+        )}
+      </button>
      
     </div>
   );
